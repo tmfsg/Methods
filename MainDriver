@@ -1,0 +1,105 @@
+import java.util.*;
+import java.lang.*;
+/*
+ * Author(s): Thomas Flannery + Michael King +  Ian Couture
+ * DOC: September 16, 2014
+ * Class: Java Programming
+ * Subject: Method Assignment
+ * NOTES********
+ *complete programming exercises page 238 [6.18], page 239 [6.21], page 240 [6.27] and page 240 [6.29].
+ * 
+ */
+public class MainDriver {
+
+	public static void main(String[] args) {
+		
+		passwordCheck();
+		
+		
+
+	}
+	
+	public static void passwordCheck(){//page 238 [6.18]
+		/*
+		 * Still needs
+		 * *new password capital check
+		 * **new password number check
+		 * 
+		 * 
+		 */
+		final String SPECIAL_CHARACTERS = "!@#$%^&*()~`-=_+[]{}|:\";',./<>?";
+		final int MIN_PASSWORD_LENGTH = 8;
+		final int MAX_PASSWORD_LENGTH = 20;
+		int passMenu = 0;String password = "password123";
+		Scanner menuPass = new Scanner(System.in);
+		Scanner passInput = new Scanner(System.in);
+		/*****/
+		do{//start of menu
+			System.out.println("*****PASSWORD CHECK*****");
+			System.out.println("1: Enter new password");
+			System.out.println("2: Password check");
+			System.out.println("3. Return to Main Menu");
+			passMenu = menuPass.nextInt();
+			switch(passMenu){
+			
+			case 1://Entering new password
+				System.out.println("Enter new password: ");
+				String passHold = "password123";
+				passHold = passInput.nextLine();
+				System.out.println("You have entered: " + passHold);
+
+			    if (passHold.isEmpty() == true) {
+			        System.out.println("No password entered");
+			        break;
+			    }
+			    password = password.trim();
+			    int passLen = password.length();
+			    if(passLen < MIN_PASSWORD_LENGTH || passLen > MAX_PASSWORD_LENGTH) {
+			        System.out.println("Password length must be more than " + MIN_PASSWORD_LENGTH + " and less than " + MAX_PASSWORD_LENGTH);
+			        break;
+			    }
+			    //char[] passArray = password.toCharArray();
+			    //for(char [] passArray = passHold.toCharArray(); i <= passHold.length();i++) {
+			    //}
+				break;
+				
+			case 2://Checking for correct password
+				System.out.println("PASSWORD CHECK ");
+				System.out.println("* Default password is: password123");
+				System.out.println("Please enter password:  ");
+				String passCMP = passInput.nextLine();
+				
+				if(passCMP.equals(password) == true){
+					System.out.println("Valid Pass");
+				}else{
+					System.out.println("Invalid Pass");
+				}
+			
+				break;
+			case 3:	//Quit
+				System.out.println("Returning to Main Menu");
+				break;
+			
+			default:
+				System.out.println("Error: Invalid Input");
+				break;
+			}//EO switch
+		
+		}while (passMenu !=3);
+		passInput.close();
+		menuPass.close();
+	}// EO passwordCheck
+	public static void telephoneKeypad(){//page 239 [6.21]
+		/*
+		 * 
+		 * 
+		 * 
+		 * 
+		 */
+	}//EO telephoneKeypad
+	public static void emirps(){
+		
+		
+	}
+	
+}//EO MainDriver
