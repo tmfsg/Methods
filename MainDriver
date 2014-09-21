@@ -98,7 +98,43 @@ public class MainDriver {
 		 */
 	}//EO telephoneKeypad
 	public static void emirps(){
-		
+		public static boolean isPrime(long n){
+			if(n <= 3)
+			     return n > 1;
+			if(n % 2 == 0 || n % 3 == 0){
+				return false;
+			}
+			for(int i = 5; i < Math.sqrt(n) + 1;i +=6){
+				if(n % i == 0 || n % (i+2) == 0){
+					return false;
+				}
+			}
+			return true;
+		}
+	 
+		public static boolean isEmirp(long x){
+			String xString = Long.toString(x);
+			if(xString.length() == 1) return false;			
+			long xR = Long.parseLong(new StringBuilder(xString).reverse().toString());
+			if(xR == x) return false;
+			return isPrime(x) && isPrime(xR);
+		}
+	 
+		public static void showEmirps(){
+			int count = 0;
+			long x = 1;
+	 
+			System.out.println("First 100 emirps:");
+			while(count < 100){
+				if(isEmirp(x)){
+					if ((count % 10) == 0)
+						System.out.println("");
+					count++;
+					System.out.print(x + " ");
+				}
+				x++;
+			}
+		}//end main
 		
 	}
 	
